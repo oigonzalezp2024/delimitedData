@@ -47,10 +47,13 @@ class DelimitedData:
         nowYear = int(date.today().year)
         nowMonth = int(date.today().month)
 
+        checkMonth = nowMonth-monthInit
+        if(checkMonth < 0):
+            nowYear -= 1
+            checkMonth += 12
+
         if(year == nowYear):
-            print(year, month, nowYear, nowMonth)
-            if(month >= nowMonth-monthInit):
-                print(year, month, nowYear, nowMonth)
+            if(month >= checkMonth):
                 return True
             else:
                 return False
